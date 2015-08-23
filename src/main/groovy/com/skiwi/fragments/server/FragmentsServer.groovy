@@ -8,13 +8,13 @@ import javax.annotation.PreDestroy
 /**
  * @author Frank van Heeswijk
  */
-class FragmentsServerService {
+class FragmentsServer {
     private String host
     private int port
 
     private WebSocketServer webSocketServer
 
-    FragmentsServerService(String host, int port) {
+    FragmentsServer(String host, int port) {
         this.host = host
         this.port = port
 
