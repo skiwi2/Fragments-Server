@@ -1,0 +1,1 @@
+grails.spring.bean.packages = ['com.skiwi.fragments.server']

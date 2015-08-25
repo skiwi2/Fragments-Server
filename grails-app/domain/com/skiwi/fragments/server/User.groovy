@@ -1,4 +1,4 @@
-package server
+package com.skiwi.fragments.server
 
 class User {
 

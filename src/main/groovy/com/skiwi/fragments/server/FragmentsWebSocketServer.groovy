@@ -1,21 +1,23 @@
 package com.skiwi.fragments.server
 
-import groovy.transform.InheritConstructors
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
 import org.java_websocket.server.WebSocketServer
-import org.springframework.context.ApplicationContext
-import server.User
+import org.springframework.beans.factory.annotation.Autowired
 
 /**
  * @author Frank van Heeswijk
  */
-@InheritConstructors
 class FragmentsWebSocketServer extends WebSocketServer {
-    //TODO fix Spring Beans
-    ServerMessageResolver serverMessageResolver = new ServerMessageResolver()
+    @Autowired
+    private ServerMessageResolver serverMessageResolver
 
     private Map<WebSocket, User> webSocketUsers = [:]
+
+    FragmentsWebSocketServer(ServerMessageResolver serverMessageResolver, InetSocketAddress address) {
+        super(address)
+        this.serverMessageResolver = serverMessageResolver
+    }
 
     @Override
     void onOpen(final WebSocket connection, final ClientHandshake handshake) {

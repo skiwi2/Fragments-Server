@@ -1,17 +1,17 @@
 package com.skiwi.fragments.server
 
 import org.java_websocket.WebSocket
-import server.User
+import org.springframework.beans.factory.annotation.Autowired
 
 /**
  * @author Frank van Heeswijk
  */
 class ServerMessageResolver {
-    //TODO fix Spring Beans
-    ClientHandler clientHandler = new ClientHandler()
+    @Autowired
+    ClientHandler clientHandler
 
-    //TODO fix Spring Beans
-    UserHandler userHandler = new UserHandler()
+    @Autowired
+    UserHandler userHandler
 
     Runnable resolveMessage(String message, WebSocket connection, User user) {
         def command
